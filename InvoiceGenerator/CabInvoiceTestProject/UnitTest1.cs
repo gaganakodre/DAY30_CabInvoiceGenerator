@@ -20,6 +20,8 @@ namespace InvoiceGenerator
             //act
 
             double actual = generator.CalculateTotalFair(distance,time);
+            //assert
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public void GivenDistanceAndTimeReturnTotalFairForPrimiumRides()
@@ -32,7 +34,28 @@ namespace InvoiceGenerator
             //act
 
             double actual = generator.CalculateTotalFair(distance, time);
+            //assert
+            Assert.AreEqual(expected, actual);
         }
+        [Test]
+        public void GivenMultipleRidesreturnTotalFair()
+        {
+            //assert
+            
+            double expected = 97;
+            Ride[] rides = new Ride[]
+            {
+                new Ride(2,5),//40
+                new Ride(3,6)//3*15+6*2=57//57+40=97
+            };
+            InvoiceGenerator generator = new InvoiceGenerator(RideType.PREMIUM);
+            //act
+
+            double actual = generator.CalculateTotalFair(rides);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
 
     }
 }
