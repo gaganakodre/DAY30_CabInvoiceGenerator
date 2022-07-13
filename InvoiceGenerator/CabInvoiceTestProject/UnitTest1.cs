@@ -21,5 +21,18 @@ namespace InvoiceGenerator
 
             double actual = generator.CalculateTotalFair(distance,time);
         }
+        [Test]
+        public void GivenDistanceAndTimeReturnTotalFairForPrimiumRides()
+        {
+            //assert
+            int distance = 2;
+            int time = 5;
+            double expected = 40;
+            InvoiceGenerator generator = new InvoiceGenerator(RideType.PREMIUM);
+            //act
+
+            double actual = generator.CalculateTotalFair(distance, time);
+        }
+
     }
 }
