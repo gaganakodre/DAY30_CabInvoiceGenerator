@@ -10,10 +10,12 @@ namespace InvoiceGenerator
     {
         public double distance;
         public int time;
-        public Ride(double distance,int time)
+        public int userID;
+        public Ride(double distance,int time, int userID)
         {
             this.distance = distance;
             this.time = time;
+            this.userID = userID;
         }
     }
 }

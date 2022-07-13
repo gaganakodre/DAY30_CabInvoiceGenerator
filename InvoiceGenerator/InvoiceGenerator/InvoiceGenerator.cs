@@ -61,15 +61,16 @@ namespace InvoiceGenerator
             }
         }
         //method overloading for multiple rides
-        public double CalculateTotalFair(Ride [] rides)
+        public InvoiceSummery CalculateTotalFair(Ride [] rides)
         {
             double totalFair = 0;
             foreach(Ride ride in rides)
             {
                totalFair+= CalculateTotalFair(ride.distance, ride.time);
             }
-            
-            return Math.Max(totalFair, MINIMUM_FARE); ;
+            totalFair=Math.Max(totalFair, MINIMUM_FARE);
+            return new InvoiceSummery(rides.Length,totalFair);
+            //rides.Where(x => x.userID == 3);
         }
     }
 
