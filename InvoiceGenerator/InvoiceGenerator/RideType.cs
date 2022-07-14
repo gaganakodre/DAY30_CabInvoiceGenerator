@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace InvoiceGenerator
+namespace CabInvoiceGenerator
 {
-    
-        public enum RideType
-        {
-            NORMAL,PREMIUM
-        }
-    
+    public enum RideType { NORMAL, PREMIUM }
 }
