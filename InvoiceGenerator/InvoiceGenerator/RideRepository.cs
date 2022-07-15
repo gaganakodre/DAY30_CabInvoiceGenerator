@@ -19,9 +19,11 @@ namespace CabInvoiceGenerator
             {
                 if (!rideList)
                 {
-                    List<Ride> list = new List<Ride>();
-                    list.AddRange(rides);
-                    this.userRides.Add(userId, list);
+                    List<Ride> list = new List<Ride>();//herer we are creating the list to sotore the ride values like distance and yile
+                    list.AddRange(rides);//this will add the specified collection to the end of the list
+                    //here adding inside the dictonary
+                    this.userRides.Add(userId, list);//why it contains value=2 means
+                                                     //buz we are adding two time and distance for same userid
                 }
             }
             catch (CabInvoiceException)
@@ -36,6 +38,9 @@ namespace CabInvoiceGenerator
             try
             {
                 return this.userRides[userId].ToArray();//copy this to toarray
+                // it will return the array which contains the dictonary
+
+                //why we are adding toarray() buz here we are having a return tye as a ride array
             }
             catch (Exception)
             {

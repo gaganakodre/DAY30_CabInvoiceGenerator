@@ -58,7 +58,10 @@ namespace CabInvoiceGeneratorTest
             invoiceGenerator.AddRides("1", rides);//it will go and add the userid ti that dictoanry as a key
             InvoiceSummary summary = invoiceGenerator.GetInvoiceSummary("1");
             InvoiceSummary expectedSummary = new InvoiceSummary(2, 30.0, "1");
-            Assert.AreEqual(expectedSummary, summary);
+            Assert.AreEqual(expectedSummary, summary);//buz here we are comaparing the object type we have
+                                                      //to go inside the invoice summery class where we created
+                                                      //the method which overridden the equal class so that it will
+                                                      //returns the object type 
         }
         [Test]
         public void GivenRides_WhenPremiumOrNormal_ShouldReturnTotalFare()

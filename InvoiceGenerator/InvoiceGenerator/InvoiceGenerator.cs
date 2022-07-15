@@ -92,6 +92,7 @@ namespace CabInvoiceGenerator
                 }
 
             }
+            //to return the values it will go inside the invoicesummary class and it will retun the values
             return new InvoiceSummary(rides.Length, totalFare);
         }
         public void AddRides(string userId, Ride[] rides)
