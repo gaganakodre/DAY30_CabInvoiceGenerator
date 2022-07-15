@@ -19,10 +19,10 @@ namespace CabInvoiceGenerator
             this.rideRepository = new RideRepository();
         }
 
-        public InvoiceGenerator(RideType rideType)
-        {
+        public InvoiceGenerator(RideType rideType)//here we are passing the ride type weather its a normal or primimum
+        {//in test case 1 we are passing as a normal ride
             this.rideType = rideType;
-            this.rideRepository = new RideRepository();
+            this.rideRepository = new RideRepository();//here dictinory assinged to null
             try
             {
                 if (rideType.Equals(RideType.PREMIUM))
@@ -30,8 +30,9 @@ namespace CabInvoiceGenerator
                     this.MINIMUM_COST_PER_KM = 15;
                     this.COST_PER_TIME = 2;
                     this.MINIMUM_FARE = 20;
-                }
-                else if (rideType.Equals(RideType.NORMAL))
+                }//it will give boolen output
+                else if (rideType.Equals(RideType.NORMAL))//here we are checking weather the ride type is equal to the
+                                                          //normal then it will go iside the loop
                 {
                     this.MINIMUM_COST_PER_KM = 10;
                     this.COST_PER_TIME = 1;
@@ -44,7 +45,7 @@ namespace CabInvoiceGenerator
                 throw new CabInvoiceException(CabInvoiceException.ExceptionType.INVALID_RIDE_TYPE, "Invalid ride type");
             }
         }
-
+        //here we are calculating the totalfare 
         public double CalculateFare(double distance, int time)
         {
             double totalFare = 0;
@@ -68,7 +69,7 @@ namespace CabInvoiceGenerator
 
                 }
             }
-            return Math.Max(totalFare, MINIMUM_FARE);
+            return Math.Max(totalFare, MINIMUM_FARE);//it will return the maximum value 
         }
 
 

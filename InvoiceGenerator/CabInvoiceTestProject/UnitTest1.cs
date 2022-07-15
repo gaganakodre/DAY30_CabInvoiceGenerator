@@ -12,10 +12,10 @@ namespace CabInvoiceGeneratorTest
         }
 
         [Test]
-        public void GivenDistanceAndTimeShouldReturnTotalFare()
+        public void GivenDistanceAndTimeShouldReturnTotalFare()//given with the distance and the time and we should return the total fare
         {
             //arrange
-            invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);//it will go inside the invoive generator
             double distance = 2.0;
             int time = 5;
             double expected = 25;
@@ -34,8 +34,9 @@ namespace CabInvoiceGeneratorTest
             //act
             InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
             InvoiceSummary expectedSummary = new InvoiceSummary(2, 35.0);
-            //assert
-            Assert.AreEqual(expectedSummary.GetType(), summary.GetType());
+            //assert   //(The exact runtime type of the current instance.)gettype method retuns type of current instance so here if it returns same type then they both are equal
+            Assert.AreEqual(expectedSummary.GetType(), summary.GetType());//assert class is a collection helper class
+            //assert is a abstract class and it retrn void and aslo areequal()=static method dosenot return any type it is void.
         }
         [Test]
         public void GivenInvoiceGenerator_UsingInvoiceSummary_ShouldReturnInvoiceSummary()
@@ -54,7 +55,7 @@ namespace CabInvoiceGeneratorTest
         {
             invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
-            invoiceGenerator.AddRides("1", rides);
+            invoiceGenerator.AddRides("1", rides);//it will go and add the userid ti that dictoanry as a key
             InvoiceSummary summary = invoiceGenerator.GetInvoiceSummary("1");
             InvoiceSummary expectedSummary = new InvoiceSummary(2, 30.0, "1");
             Assert.AreEqual(expectedSummary, summary);

@@ -4,11 +4,11 @@ using System.Text;
 
 namespace CabInvoiceGenerator
 {
-    class RideRepository
+    class RideRepository//it contains the information of the userid 
     {
-        Dictionary<string, List<Ride>> userRides = null;
+        Dictionary<string, List<Ride>> userRides = null;//here we are creating the dictonary and inside that we are ahving the list contains the ride class
 
-        public RideRepository()
+        public RideRepository()//constructor
         {
             this.userRides = new Dictionary<string, List<Ride>>();
         }
@@ -35,7 +35,7 @@ namespace CabInvoiceGenerator
             bool rideList = this.userRides.ContainsKey(userId);
             try
             {
-                return this.userRides[userId].ToArray();
+                return this.userRides[userId].ToArray();//copy this to toarray
             }
             catch (Exception)
             {
